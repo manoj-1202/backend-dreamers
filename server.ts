@@ -27,7 +27,7 @@ app.post("/send-contact-email", async (req, res) => {
   const mailOptions = {
     from: `"${name}" <ttsapplications2025@gmail.com>`, // Sender address (your Gmail)
     replyTo: email, // User's email for replies
-    to: "manojpolevault1202@gmail.com",
+    to: "dreamersproductionhouse@gmail.com",
     subject: `New Project Inquiry from ${name}`,
     html: `
       <h3>Project Inquiry</h3>
