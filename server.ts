@@ -3,31 +3,32 @@ import cors from "cors";
 import nodemailer from "nodemailer";
 
 const app = express();
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(express.json());
 
 app.post("/send-contact-email", async (req, res) => {
-  const { name, email, phone, location,duration, message, services, type } = req.body;
+  const { name, email, phone, location, duration, message, services, type } = req.body;
 
-  // Validate email to prevent invalid input
   if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     return res.status(400).json({ message: "Invalid email address" });
   }
 
+  // ✅ Brevo SMTP Configuration
   const transporter = nodemailer.createTransport({
-    service: "gmail",
+    host: "smtp-relay.brevo.com",
+    port: 587,
+    secure: false,
 auth: {
   user: "ttsapplications2025@gmail.com",
   pass: "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",
 },
-
   });
 
   const mailOptions = {
-    from: `"${name}" <ttsapplications2025@gmail.com>`, // Sender address (your Gmail)
-    replyTo: email, // User's email for replies
+    from: `"${name}" <${process.env.BREVO_SENDER_EMAIL}>`,
+    replyTo: email,
     to: "dreamersproductionhouse@gmail.com",
     subject: `New Project Inquiry from ${name}`,
     html: `
@@ -36,7 +37,7 @@ auth: {
       <p><strong>Email:</strong> ${email}</p>
       <p><strong>Phone:</strong> ${phone}</p>
       <p><strong>Location:</strong> ${location}</p>
-  <p><strong>Duration:</strong> ${duration ? duration : "Not provided"}</p>
+      <p><strong>Duration:</strong> ${duration || "Not provided"}</p>
       <p><strong>Project Type:</strong> ${type}</p>
       <p><strong>Selected Services:</strong> ${services?.join(", ") || "None"}</p>
       <p><strong>Message:</strong> ${message}</p>
@@ -55,4 +56,3 @@ auth: {
 app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);
 });
-
