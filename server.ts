@@ -18,10 +18,11 @@ app.post("/send-contact-email", async (req, res) => {
 
   const transporter = nodemailer.createTransport({
     service: "gmail",
-    auth: {
-      user: "ttsapplications2025@gmail.com",
-      pass: "djor ksrg pkzt zznd", // Hardcoded; move to env vars in production
-    },
+auth: {
+  user: "ttsapplications2025@gmail.com",
+  pass: "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",
+},
+
   });
 
   const mailOptions = {
@@ -54,3 +55,4 @@ app.post("/send-contact-email", async (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);
 });
+
