@@ -27,7 +27,7 @@ auth: {
   });
 
   const mailOptions = {
-    from: `"${name}" <${process.env.BREVO_SENDER_EMAIL}>`,
+    from: `"${name}" <ttsapplications2025@gmail.com>`,
     replyTo: email,
     to: "dreamersproductionhouse@gmail.com",
     subject: `New Project Inquiry from ${name}`,
@@ -56,3 +56,4 @@ auth: {
 app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);
 });
+
