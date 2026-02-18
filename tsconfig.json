@@ -5,24 +5,16 @@
     { "path": "./tsconfig.node.json" }
   ],
  
+
   "compilerOptions": {
     "target": "ES2022",
-    "module": "ESNext",
+    "module": "NodeNext",
     "moduleResolution": "NodeNext",
-    "rootDir": "./",
-    "outDir": "./dist",
-
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-
+    "outDir": "dist",
+    "rootDir": ".",
     "strict": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-
-    "resolveJsonModule": true,
-    "types": ["node"],
-
-    "baseUrl": "."
+    "esModuleInterop": true,
+    "types": ["node"]
   },
 
   "ts-node": {
