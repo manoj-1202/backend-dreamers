@@ -1,21 +1,15 @@
 {
-  "files": [],
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
-  ],
- 
-
   "compilerOptions": {
     "target": "ES2022",
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
-    "outDir": "dist",
+    "module": "CommonJS",
     "rootDir": ".",
+    "outDir": "dist",
     "strict": true,
     "esModuleInterop": true,
+    "skipLibCheck": true,
     "types": ["node"]
   },
+  "include": ["server.ts"],
 
   "ts-node": {
     "esm": true,

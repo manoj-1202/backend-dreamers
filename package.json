@@ -2,12 +2,12 @@
   "name": "vite_react_shadcn_ts",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
-"scripts": {
-  "dev": "vite",
-  "build": "tsc",
-  "start": "node dist/server.js"
-},
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "server:build": "tsc",
+    "start": "node dist/server.js"
+  },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
     "@radix-ui/react-accordion": "^1.2.0",
